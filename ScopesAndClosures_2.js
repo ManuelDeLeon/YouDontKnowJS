@@ -43,7 +43,7 @@
 	let letter = "A";
 	setTimeout( // Run the following function on the next cycle
 		() => { 
-			console.log(letter); // "A"
+			console.log(letter); // "B"
 		}
  );
 	letter = "B";
