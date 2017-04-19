@@ -3,7 +3,7 @@
 // *********************************
 
 // The "this" keyword refers to the context in which the 
-// fuction is running on.
+// function is running on.
 
 // It works almost like C# extension methods.
 
@@ -88,7 +88,7 @@
 	console.log(who); // undefined
 }
 
-// You can be explicit about what a function retuns (even with new):
+// You can be explicit about what a function returns (even with new):
 
 {
 	const Person = function (name) {
