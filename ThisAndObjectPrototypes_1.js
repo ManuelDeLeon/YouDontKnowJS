@@ -120,7 +120,7 @@
 	};
 	person.age = 25;
 	person["address"] = "123 Main St.";
-	for(var petNum in [1,2,3]) {
+	for(let petNum in [1,2,3]) {
 		person["Pet " + petNum] = petNum;
 	}
 	person["Any string you want"] = "works."
