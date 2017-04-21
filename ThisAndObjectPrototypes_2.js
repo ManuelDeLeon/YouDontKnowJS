@@ -46,9 +46,8 @@ console.log("======11111111========");
 // Mixins
 // *********************************
 
-
 {
-	// For information purposes only
+	// For demonstration purposes only
 	// Use Object.assign instead
 	// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
 	const mixin = (targetObj, sourceObj) => {
@@ -83,7 +82,7 @@ console.log("======11111111========");
 	// Using Object.assign
 	const otherPerson = {};
 	Object.assign(otherPerson, walkable, runnable);
-	
+
 	console.log("Other Person:")
 	otherPerson.walk();
 	otherPerson.run();
