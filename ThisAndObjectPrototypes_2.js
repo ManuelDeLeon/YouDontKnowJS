@@ -48,7 +48,10 @@ console.log("======11111111========");
 
 
 {
-	const mixin = (sourceObj, targetObj) => {
+	// For information purposes only
+	// Use Object.assign instead
+	// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
+	const mixin = (targetObj, sourceObj) => {
 		for (let key in sourceObj) {
 			// only copy if not already present
 			if (!(key in targetObj)) {
@@ -71,12 +74,19 @@ console.log("======11111111========");
 	}
 
 	const person = {};
-	mixin(walkable, person);
-	mixin(runnable, person);
+	mixin(person, walkable);
+	mixin(person, runnable);
 
 	person.walk();
 	person.run();
 
+	// Using Object.assign
+	const otherPerson = {};
+	Object.assign(otherPerson, walkable, runnable);
+	
+	console.log("Other Person:")
+	otherPerson.walk();
+	otherPerson.run();
 }
 
 console.log("======22222222222========");
