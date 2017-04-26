@@ -63,6 +63,7 @@
 // e.g. mdn bind
 
 // The "new" keyword creates a copy of a function:
+// (it also assigns the prototype of the copy, but more on that later)
 
 {
 	const f1 = function() { };
@@ -82,7 +83,7 @@
 	}
 	const edgar = new Person("Edgar");
 	edgar.printName();
-
+	
 	// But only with new:
 	const who = Person("Who");
 	console.log(who); // undefined
@@ -92,12 +93,17 @@
 
 {
 	const Person = function (name) {
-		return {
-			name: name,
-			printName: function () {
-				console.log(this.name);
+		// Hand waiving Object.create and Person.prototype (for now)
+		return Object.create(Person.prototype, {
+			name: {
+				value: name
+			},
+			printName: {
+				value: function () {
+					console.log(this.name);
+				}
 			}
-		}
+		});
 	}
 	const finn = new Person("Finn");
 	finn.printName();

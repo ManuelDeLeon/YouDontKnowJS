@@ -177,6 +177,9 @@ console.log("=======44444444444444=======");
 
 {
 	const Person = function(initialName) {
+		// name is in Person.prototype, not the newly instance,
+		// but a new property is created on the instance to hold the value
+		// (shadowing the prototype's property)
 		this.name = initialName;
 	}
 
@@ -194,6 +197,8 @@ console.log("=======44444444444444=======");
 	}
 
 	const alan = new Person("Alan");
+	// The new keyword assigns the Person.prototype to the instance of alan
+	// That's why it can access a method in Person.prototype
 	alan.sayHello();
 
 	const brit = new Person("Brit");
