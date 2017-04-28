@@ -2,6 +2,9 @@
 
 // Never let JS do an implicit cast for you (except for the simplest of cases)
 // That means always use ===
+// Great summary: https://dorey.github.io/JavaScript-Equality-Table/
+// Moral of the story: Always use 3 equals unless you have a good reason to use 2.
+
 // Testing for truthy/falsy values is okay
 
 {
@@ -35,6 +38,7 @@
 }
 
 // Prototypes as defaults are a terrible idea
+
 // Use default parameters, not ||
 
 // Don't
