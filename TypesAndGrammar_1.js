@@ -16,6 +16,7 @@
 }
 
 // Only use the new keyword for your classes and RegExp, Date, and Error
+// It's wasteful and you can run into pitfalls like the following:
 {
 	const falsy = new Boolean(false);
 	if (falsy) {
@@ -23,8 +24,8 @@
 	}
 }
 
-// If a function doesn't have a value to return then return null instead of undefined
-// We've adopted the convention that:
+// If a function doesn't have a value to return then return null instead of undefined.
+// That's because we've adopted the convention that:
 // undefined = the variable hasn't been assigned a value yet
 // null = we don't have a value to assign the variable
 {
@@ -37,7 +38,21 @@
 	};
 }
 
-// Prototypes as defaults are a terrible idea
+// Prototypes as defaults is a terrible idea
+// Don't
+{
+	const foo = (name) => {
+		const array = Array.prototype;
+		// ...
+	}
+}
+// Do
+{
+	const foo = (name) => {
+		const array = [];
+		// ...
+	}
+}
 
 // Use default parameters, not ||
 
