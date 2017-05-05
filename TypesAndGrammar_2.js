@@ -1,5 +1,3 @@
-console.log("\n");
-
 // You can override .toString (like anything else in JS)
 
 // Recap on objects
