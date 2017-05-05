@@ -118,7 +118,7 @@ console.log("\n===========4444444444============\n");
 	}
 	// No longer a fan, but not opposed either.
 	// I prefer the following (less mental overhead)
-	if (arr.indexOf(3) >= 0) {
+	if ( arr.indexOf(3) >= 0 ) {
 		console.log("Has #3");
 	}
 
@@ -148,7 +148,6 @@ console.log("\n===========4444444444============\n");
 	const rates = getRates();
 	const selected = "premium";
 	const rateToUse = rates && rates[selected] || "default rate";
-
 	
 }
 
