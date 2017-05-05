@@ -1,14 +1,13 @@
-// You can override .toString (like anything else in JS)
-
 // Recap on objects
 {
 	const obj = {}; // same as = new Object()
-	console.log("Has own toString", obj.hasOwnProperty("toString"));
-	console.log("obj.toString() =", obj.toString())
+	console.log("Has own toString", obj.hasOwnProperty("toString")); // false
+	console.log("obj.toString() =", obj.toString()); // [object Object]
 }
 
 console.log("\n===========11111111111============\n");
 
+// You can override .toString (like anything else in JS)
 {
 	const person = {
 		name: 'Alan',
@@ -16,8 +15,8 @@ console.log("\n===========11111111111============\n");
 			return `Person { name: '${this.name}' }`;
 		}
 	}
-	console.log("Has own toString", person.hasOwnProperty("toString"));
-	console.log("The winner is: " + person);
+	console.log("Has own toString", person.hasOwnProperty("toString")); // true
+	console.log("The winner is: " + person); // The winner is: Person { name: 'Alan' }
 }
 
 console.log("\n===========22222222222============\n");
@@ -33,17 +32,17 @@ console.log("\n===========22222222222============\n");
 	};
 
 	// Get a string representation of the object
-	const personJSON = JSON.stringify(person); 
+	const personJSON = JSON.stringify(person); // `{"name":"Alan"}`
 	console.log("personJSON", personJSON);
 
 	// Doesn't have the 'greet' function
 	const personParsed = JSON.parse(personJSON);
-	console.log("personParsed", personParsed);
+	console.log("personParsed", personParsed); // { name: 'Alan' }
 
 	// Adding 'greet' with Object.assign
 	personParsed.name = "Brito"; // Sanity check
 	const personFull = Object.assign({}, person, personParsed);
-	console.log("personFull", personFull);
+	console.log("personFull", personFull); // { name: 'Brito', greet: [Function: greet] }
 
 	// Using a class
 	class Person {
@@ -56,14 +55,14 @@ console.log("\n===========22222222222============\n");
 		}
 	}
 	const personWClass = new Person(personParsed);
-	console.log(personWClass.greet());
+	console.log(personWClass.greet()); // Hello Brito
 
 	console.log("-----------");
 
 	// Just so we're on the same page,
 	// the instance doesn't have the greet function
-	console.log("Has own greet", personWClass.hasOwnProperty("greet"));
-	console.log(personWClass);
+	console.log("Has own greet", personWClass.hasOwnProperty("greet")); // false
+	console.log(personWClass); // Person { name: 'Brito' }
 
 	// class Person... is (roughly) the same as
 	const Human = function(humanData) {
@@ -77,7 +76,7 @@ console.log("\n===========22222222222============\n");
 	// not the actual instance of Human
 
 	const human = new Human(personParsed);
-	console.log(human.greet());
+	console.log(human.greet()); // Hello Brito
 }
 
 console.log("\n===========3333333333============\n");
@@ -89,7 +88,8 @@ console.log("\n===========3333333333============\n");
 			return 40;
 		}
 	};
-	console.log(myNum + 2); // Look Ma! I'm adding objects!
+	// Look Ma! I'm adding objects!
+	console.log(myNum + 2); // 42 
 }
 
 console.log("\n===========4444444444============\n");
