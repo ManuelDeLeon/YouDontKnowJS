@@ -36,6 +36,7 @@ console.log("\n===========22222222222============\n");
 	const personJSON = JSON.stringify(person); 
 	console.log("personJSON", personJSON);
 
+	// Doesn't have the 'greet' function
 	const personParsed = JSON.parse(personJSON);
 	console.log("personParsed", personParsed);
 
@@ -59,7 +60,8 @@ console.log("\n===========22222222222============\n");
 
 	console.log("-----------");
 
-	// Just so we're on the same page
+	// Just so we're on the same page,
+	// the instance doesn't have the greet function
 	console.log("Has own greet", personWClass.hasOwnProperty("greet"));
 	console.log(personWClass);
 
@@ -71,6 +73,8 @@ console.log("\n===========22222222222============\n");
 	Human.prototype.greet = function() {
 		return `Hello ${this.name}`;
 	};
+	// Human.prototype is the one that has greet,
+	// not the actual instance of Human
 
 	const human = new Human(personParsed);
 	console.log(human.greet());
@@ -85,7 +89,7 @@ console.log("\n===========3333333333============\n");
 			return 40;
 		}
 	};
-	console.log(myNum + 2);
+	console.log(myNum + 2); // Look Ma! I'm adding objects!
 }
 
 console.log("\n===========4444444444============\n");
